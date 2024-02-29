@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dan3{
+            background-color: skyblue;
+        }
+        .viewWrap{
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- <h1>test1</h1>
+    <h2>test2</h2>
+    <h3>test3</h3>
+    <h4>test4</h4>
+    <h5>test5</h5>
+    <h6>test</h6>
+    <p>Lorem ipsum dolor sit.</p> -->
+
+    <script>
+        // var num = 10;
+        // var num = 102;
+
+        // document.write(num + "<br>")
+
+        // let myNum = 100;
+        // myNum = 10;
+
+        // document.write(myNum)
+
+        // for(초기값;조건문;증감){}
+
+        for(let i=1;i<=10;i++){
+            document.write(i + "<br>")
+        }
+
+        let sum = 0;
+        for(let i=1;i<=100;i++){
+            sum = sum + i;
+            // document.write(sum + "<br>")
+        }
+        document.write("총합은 : " + sum +"<br>")
+
+
+        for (let i = 0; i < 10; i++) {
+            document.write("3 x " + i + " =" + 3*i + "<br>")            
+        }
+
+        document.write("<hr>")
+
+        document.write("<div class='viewWrap'>")
+        for(let dan = 1;dan<100;dan++){
+            document.write("<div class='view'>")
+            document.write(dan + "단" +"<br>")
+            for(let j=1;j<10;j++){
+                document.write(dan + " x "+ j + " = " + dan*j + "<br>")
+            }
+            document.write("</div>")
+        }
+        document.write("</div>")
+
+        
+    </script>
+
+  
+
+    
+</body>
+</html>
