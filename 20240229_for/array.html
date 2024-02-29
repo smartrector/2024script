@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        ul,li{list-style: none;}
+        .gnbMenu{
+            display: flex;
+            gap:10px
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var city1 = "서울"
+        var city2 = "경기"
+        var city3 = "강원"
+
+        var city = ["company","product","online","community","history"]
+        
+        // document.write("<ul class='gnbMenu'>")
+        // for(let i=0;i<city.length;i++){
+        //     document.write("<li>")
+        //     document.write(city[i])
+        //     document.write("</li>")
+        // }
+        // document.write("</ul>")
+        
+        for(let i=0;i<city.length;i++){
+            document.write(city[i] + "<br>")
+        }
+        
+    </script>
+</body>
+</html>
