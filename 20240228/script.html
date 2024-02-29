@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <script>
+        var first = "han ";
+        var last = "sung yong";
+        var name = first + last;
+        document.write("hi!! " + name + "님 안녕하세요!!!");
+    </script>
+
+    <script>
+        var x=10;
+        var y=7;
+        var result;
+        var title;
+
+        // result = (x>y) ? x:y;
+
+
+        if(x>y){ //true
+            result = x //true
+            title = "x";
+        }else{
+            result = y //false
+            title = "y"
+        }
+
+        // if(조건문1){ t/f
+        //     조건문1 true실행;
+        // }else if(조건문2){
+        //    조건문2 true실행;
+        // }else{
+        //    false실행
+        //}
+
+        console.log("큰값은 " + title + "이고 값은 " + result +"입니다.");
+        document.write(`큰값은 ${title}이고 값은 ${result} 입니다.`)
+    
+
+
+    </script>
+
+    <script>
+        var xNum = 10;
+
+        xNum += 100; // xNum = xNum + 100;
+        // alert(xNum);
+        console.log(xNum)
+
+        var myName = "홍길동";
+        myName += " 입니다." //myName = myName + " 입니다."
+        myName += "!!"
+        console.log(myName)
+    </script>
+
+    <script>
+        // var id,password;
+        // id = window.prompt('아이디 입력')
+        // if(id == "admin"){
+        //     password = prompt('비밀번호입력')
+        //     if(password == '1234'){
+        //         location.href = "login.html"
+        //     }else{
+        //         location.href = "error.html"
+        //     }
+        // }else{
+        //     location.href = "error.html"
+        // }
+    </script>
+
+    <script>
+        var day;
+        var hobby;
+        const d = new Date().getDay()
+        console.log(d)
+        // switch(d){
+        //     case 0:
+        //         day = "일요일"
+        //         hobby = "운동"
+        //         break
+        //     case 1:
+        //         day = "월요일"
+        //         hobby = "운동"
+        //         break
+        //     case 2:
+        //         day = "화요일"
+        //         hobby = "자바스크립트"
+        //         break
+        //     case 3:
+        //         day = "수요일"
+        //         hobby = "피그마"
+        //         break
+        //     case 4:
+        //         day = "목요일"
+        //         hobby = "노드"
+        //         break
+        // }
+
+        if(d == 3){
+            day = "수요일"
+            hobby = "피그마"
+        }
+        if(d == 4){
+            day = "목요일"
+            hobby = "피그마"
+        }
+
+        document.write("오늘은" + day + "입니다."+hobby + "하는 날입니다.")
+    </script>
+</body>
+</html>
