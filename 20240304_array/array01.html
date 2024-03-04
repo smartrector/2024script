@@ -31,7 +31,7 @@
     </style>
 </head>
 <body>
-    <div class="container d-flex">
+<div class="container d-flex">
         <div class="logo">logo</div>
         <ul class="menu">
             <script>
@@ -43,15 +43,20 @@
                     "http://www.naver.com",
                     "http://www.naver.com",
                 ]
-    
+                
+               
                 for(let i=0; i<loca.length;i++){
                     document.write("<li>")
-                    // document.write("<a href='" + 변수 + "'>")
+                     // document.write("<a href='" + 변수 + "'>")
                     document.write(`<a href="${locaLink[i]}">`)
                     document.write(loca[i])
                     document.write("</a>")
                     document.write("</li>")
+
+
+                    
                 }
+
     
                 // console.log(loca[0])
                 // console.log(loca[1])
@@ -63,6 +68,42 @@
     <div class="container bg-primary" style="height: 300px;">
         visual
     </div>
+
+
+    <script>
+        let num = 0
+        function 작명(money){ //함수이름생성
+            let 변수 = 1 * 2 * money
+            return 변수
+        }
+
+        // num = 작명(500) //함수호출
+        console.log("입력돈 : "+num);
+    </script>
+
+    <script>
+        const arr = [10,20,30,40,50]
+
+        function sum(){ //함수만듬
+            let numSum = 0
+
+            for(let i=0;i<arr.length;i++){
+                numSum = numSum + arr[i]
+               // numSum += arr[i]
+            }
+
+            // numSum = 0 + 10  // 10
+            // numSum = 10 + 20  // 30
+
+            return numSum;
+        }
+        let num1 = sum() //함수호출
+        document.write("숫자 : " + num1)
+    </script>
+
+
+       
+   
     
 </body>
 </html>
