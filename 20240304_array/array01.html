@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        a:link{text-decoration: none;}
+        a:visited{color:black}
+
+        ul,li{list-style: none;}
+
+        .menu{display: flex;gap:10px}
+
+        .container{
+            width: 1120px;
+            /* margin-left:auto;
+            margin-right: auto; */
+            margin:0 auto;
+            
+        }
+        .d-flex{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .bg-primary{
+            background-color:skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container d-flex">
+        <div class="logo">logo</div>
+        <ul class="menu">
+            <script>
+                const loca = ["seoul","daegu","inchon","pusan","kimpo"]
+                const locaLink = [
+                    "http://www.naver.com",
+                    "http://www.daum.net",
+                    "http://www.korea.com",
+                    "http://www.naver.com",
+                    "http://www.naver.com",
+                ]
+    
+                for(let i=0; i<loca.length;i++){
+                    document.write("<li>")
+                    // document.write("<a href='" + 변수 + "'>")
+                    document.write(`<a href="${locaLink[i]}">`)
+                    document.write(loca[i])
+                    document.write("</a>")
+                    document.write("</li>")
+                }
+    
+                // console.log(loca[0])
+                // console.log(loca[1])
+                // console.log(loca[2])
+    
+            </script>
+        </ul>
+    </div>
+    <div class="container bg-primary" style="height: 300px;">
+        visual
+    </div>
+    
+</body>
+</html>
