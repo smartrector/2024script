@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function fName (mon,name){  // let mon = 500
+            var 실행변수 = 100 + mon;
+            // document.write(실행문)
+            // document.write('나의 이름은 ' + name)
+            return 실행변수;
+        }
+
+        // fName(500)
+
+        let num = fName(500,'홍길동') //인자 호출
+        console.log(num)
+    </script>
+
+    <script>
+        function printMsg(name,age){
+            // alert('학생정보없음')
+            // document.write("학생의 이름은 " + name + " 이고,<br>")
+            // document.write("나이는 " + age + "세 입니다.<br>")
+
+            // document.getElementsByClassName('name')[0].innerHTML = name;
+            // document.getElementsByClassName('name')[1].innerHTML = name;
+            // document.getElementsByClassName('name')[2].innerHTML = name;
+            // document.getElementsByClassName('name')[3].innerHTML = name;
+            // document.getElementsByClassName('name')[4].innerHTML = name;
+            // document.getElementsByClassName('name')[5].innerHTML = name;
+            // document.getElementsByClassName('name')[6].innerHTML = name;
+            const nameElm = document.getElementsByClassName('name')
+
+            for(let i=0;i<nameElm.length;i++){
+                nameElm[i].innerHTML = name
+            }
+
+
+            document.getElementsByClassName('age')[0].innerHTML = age;
+            document.getElementsByClassName('age')[0].style.fontWeight = 'bold';
+            document.getElementsByClassName('age')[0].style.color = 'red';
+
+            
+
+
+
+
+        }
+    </script>
+    <!-- * < tag < class < id < inline style < !important -->
+    <style>
+
+    </style>
+    <div>
+        이름은 <span class="name">나</span> 이고, 나이는 <span class="age">0</span>세 입니다.
+        <span class="name">나</span>
+        <span class="name">나</span>
+        <span class="name">나</span>
+        <span class="name">나</span>
+        <span class="name">나</span>
+        <span class="name">나</span>
+        <span class="name">나</span>
+        <span class="name">나</span>
+        <span class="name">나</span>
+        <span class="name">나</span>
+        <span class="name">나</span>
+    </div>
+
+        <button onclick="printMsg('홍길동',20)">학생정보</button>
+        <button onclick="printMsg('이순신',25)">학생정보</button>
+        <button onclick="printMsg('감강찬',30)">학생정보</button>
+</body>
+</html>
