@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        .vList{width: 300px;}
+
+        .vList > li{
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    
+        <input type="text" value="" class="todo">
+        <button class="btn">오늘의 할일</button>
+
+        <ul class="vList">
+
+        </ul>
+        
+        <script>
+
+
+            const todoElm = document.getElementsByClassName('todo')[0]
+            const btnElm = document.getElementsByClassName('btn')[0]
+            const vListElm = document.getElementsByClassName('vList')[0]
+
+            const viewList = ["한성용","홍길동","이순신"];
+
+            // btnElm.addEventListener("click",function(){})
+            btnElm.addEventListener("click",function(){ //버튼클릭
+                // console.log(todoElm.value)
+                viewList.push(todoElm.value)    // viewList에 value create
+                todoElm.value = ''              // input value 초기화
+
+                let textList = '' // 문자초기값
+                for(let i=0;i<viewList.length;i++){
+                    // textList = textList + `<li>${viewList[i]}</li>`
+                    textList +=  `<li><div>${viewList[i]}</div> <div>삭제</div></li>`
+                }
+
+                vListElm.innerHTML = textList;
+                   
+
+            })
+
+            
+            
+        </script>
+
+        
+    
+</body>
+</html>
