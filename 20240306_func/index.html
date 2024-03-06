@@ -38,16 +38,18 @@
    
 
     <div class="btn">변경/보이기</div>
-    <div class="btn">변경/안보이기</div>
+    <!-- <div class="btn">변경/안보이기</div> -->
     <div class="modal">
         test
     </div>
     <script>
+        //변수
         const boxElm = document.getElementsByClassName('box')
         const btnElm = document.getElementsByClassName('btn');
         const modalElm = document.getElementsByClassName('modal');
+        let eView = true;
 
-
+        //함수
         function changeColor(color){
             for(let i=0;i<boxElm.length;i++){
                 boxElm[i].style.color = color
@@ -60,17 +62,54 @@
         //     }
         // }
 
-        btnElm[0].addEventListener("click",function(){
-            changeColor('red')
-            modalElm[0].style.display = "block";
+        // btnElm[0].addEventListener("click",function(){
+        //     changeColor('red')
+        //     modalElm[0].style.display = "block";
 
 
-        })
+        // })
 
-        btnElm[1].addEventListener("click",function(){
-            changeColor('black')
-            modalElm[0].style.display = "none";
-        })
+        // btnElm[1].addEventListener("click",function(){
+        //     changeColor('black')
+        //     modalElm[0].style.display = "none";
+        // })
+
+        function vToggle(){
+            if(eView == true){
+                changeColor('red')
+                modalElm[0].style.display = "block";
+                eView = false;
+            }else{
+                changeColor('black')
+                modalElm[0].style.display = "none";
+                eView = true;
+            }
+
+        }
+
+        
+        
+        
+        //이벤트
+        btnElm[0].addEventListener("click",vToggle)
+
+        // btnElm[0].addEventListener("click",function(){
+        //     if(eView == true){
+        //         changeColor('red')
+        //         modalElm[0].style.display = "block";
+        //         eView = false;
+        //     }else{
+        //         changeColor('black')
+        //         modalElm[0].style.display = "none";
+        //         eView = true;
+        //     }
+
+        // })
+
+
+
+
+
     </script>
 </body>
 </html>
