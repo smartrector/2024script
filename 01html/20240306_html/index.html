@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        **** block tag ****
+        <h1>~<h6> <div> <p> <ul> <li>
+        **** inline tag ****
+        <a> <img> <span>
+    --> 
+    <style>
+        h3{
+            width: 300px;
+            text-align: center;
+            background: skyblue;
+        }
+
+         body > p > span{color:red} /* 3 */
+        p > span.blue {color:blue} /* 12 */
+
+        /* 
+        tag : 1
+        class: 10
+        id:100
+
+        * < tag < class < id < inline style(javascript) < !important
+
+        */
+    </style>
+    <h3>test</h3>
+    <span>test</span>
+    <a href="http://www.naver.com" target="_balnk">naver</a>
+    <img src="img.png" alt="" class="img">
+    <h4>test1</h4>
+    <p>Lorem ipsum dolor sit, <span class="blue">amet</span> consectetur adipisicing <span>amet</span>. Tempore, qui?</p>
+
+    <style>
+        div.menuWrap{
+            /* display: flex; */
+            display: flex;
+            width: 300px;
+            height: 200px;
+            background-color: pink;
+          
+ 
+        }
+        div.menuWrap > div{
+            background: red;
+            flex:1
+            
+            
+
+
+            
+            
+        }
+    </style>
+
+    <div class="menuWrap"> <!-- container -->
+        
+        <div>men1</div><!-- item -->
+        <div>men2</div><!-- item -->
+    </div>
+
+
+    <div class="menuWrap">
+        <ul>
+            <li><a href="#">menu1</a>
+                <ul class="submenu">
+                    <li><a href="#">submen1</a></li>
+                    <li><a href="#">submen1</a></li>
+                    <li><a href="#">submen1</a></li>
+                    <li><a href="#">submen1</a></li>
+                    <li><a href="#">submen1</a></li>
+                </ul>
+            </li>
+            <li><a href="#">menu1</a></li>
+            <li><a href="#">menu1</a></li>
+            <li><a href="#">menu1</a></li>
+            <li><a href="#">menu1</a></li>
+        </ul>
+    </div>
+</body>
+</html>
