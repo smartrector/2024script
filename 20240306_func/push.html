@@ -16,33 +16,74 @@
     </style>
   </head>
   <body>
-    <input type="text" value="" class="todo" />
+    <input type="text" value="" class="todo" placeholder="오늘의 할일을 입력하세요" />
     <button class="btn">오늘의 할일</button>
 
     <ul class="vList"></ul>
+    <button class="allDel">전체삭제</button>
 
     <script>
       const todoElm = document.getElementsByClassName("todo")[0];
       const btnElm = document.getElementsByClassName("btn")[0];
       const vListElm = document.getElementsByClassName("vList")[0];
+      const aDelElm = document.getElementsByClassName("allDel")[0];
 
-      const viewList = ["한성용", "홍길동", "이순신"];
+      let viewList = []; //data 창고
 
       // btnElm.addEventListener("click",function(){})
       btnElm.addEventListener("click", function () {
         //버튼클릭
         // console.log(todoElm.value)
-        viewList.push(todoElm.value); // viewList에 value create
+       
+        if(todoElm.value != ''){ // 입력값이 없지 않을때
+          viewList.push(todoElm.value); // viewList에 value create //있다
+          viewData()
+        }else{
+          alert("오늘의 할일을 입력하세요") //자료가 없다
+        }
+
+      });
+
+      function vListDel(idx){
+        console.log('삭제완료 : ' + idx)
+        viewList.splice(idx,1)
+        viewData()
+      }
+
+
+      function viewData(){
         todoElm.value = ""; // input value 초기화
 
         let textList = ""; // 문자초기값
-        for (let i = 0; i < viewList.length; i++) {
-          // textList = textList + `<li>${viewList[i]}</li>`
-          textList += `<li><div>${viewList[i]}</div> <div>삭제</div></li>`;
+      
+        if(viewList.length > 0){
+          for (let i = 0; i < viewList.length; i++) {
+            // textList = textList + `<li>${viewList[i]}</li>`
+            textList += `<li><div>${viewList[i]}</div> <div class='del' onclick="vListDel(${i})">삭제</div></li>`;
+          }
+        }else{
+          textList = "오늘은 쉬는날!!!!!"
         }
 
         vListElm.innerHTML = textList;
-      });
+      }
+
+
+      aDelElm.addEventListener("click",function(){
+        viewList = []
+        viewData();
+      })
+
+      viewData(); //처음 데이터 확인
+
+      
+      
+
+
+      
+
+
+
     </script>
   </body>
 </html>
