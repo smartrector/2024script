@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;box-sizing: border-box;}
+        a:link,a:visited{
+            text-decoration: none;
+            color:#333;
+        }
+        body{
+            /* background-color: pink; */
+        }
+        .bannerWrap{
+            background-color: skyblue;
+            /* height: 100%; */
+            height: 100vh;
+            min-height:768px ;
+            width: 100%;
+            min-width:1140px;
+
+            background-image: url(./img/new_main_visual_bg04.jpg);
+            background-repeat: no-repeat;
+            background-color: #fff;
+            background-size: cover;
+            background-position: center;
+        }
+        .banner{
+            width: 1140px;
+            /* background: skyblue; */
+            margin: 0 auto;
+            height: 100%;
+            color:white;
+            display: flex;
+            align-items: center;
+
+        }
+
+        /* .banner a{
+            color: white;
+        } */
+
+        h3{
+            font-size: 50px;
+        }
+        p.title{
+            font-size: 20px;
+        }
+        a.btn{
+            width: 150px;
+            height: 50px;
+            /* background-color:#fff; */
+            border-radius: 25px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            color:white;
+            font-weight: bold;
+
+            border:1px solid #fff;
+
+            transition: 0.3s; /* animation time */
+            
+
+
+        }
+        a.btn.active{
+            background-color: #fff;
+            color:black;
+        }
+        a.btn:hover{
+            background-color: #fff;
+            color:black;
+        }
+
+
+        .menuWrap{
+            /* background: #2c0367; */
+            min-width:1140px;
+            display: flex;
+            gap:10px;
+            justify-content: space-between;
+            padding: 10px 20px;
+            position: fixed;
+            width: 100%;
+        }
+
+        .mb10{margin-bottom: 10px !important;}
+        .mb20{margin-bottom: 20px !important;}
+
+    </style>
+</head>
+<body>
+    <div class="menuWrap">
+        <a href="#" class="btn active">HOME</a>
+        <a href="#" class="btn">COMPANY</a>
+        <a href="#" class="btn">PRODUCT</a>
+        <a href="#" class="btn">COMMUNITY</a>
+    </div>
+    <div class="bannerWrap"> <!-- 100% min-width:1140 background-img-->
+        <div class="banner"> <!-- 1140px m0auto-->
+            <div class="txtWrap">
+                <h3 class="mb10">Lorem ipsum<br> dolor sit amet.</h3>
+                <p class="title mb20">Lorem ipsum dolor sit amet, <br>consectetur adipisicing elit. Ratione, doloremque.</p>
+                <a href="#" class="btn  ">자세히보기</a>
+            </div>
+        </div>
+    </div>
+    
+
+    <div style="height:1000px"></div>
+</body>
+</html>

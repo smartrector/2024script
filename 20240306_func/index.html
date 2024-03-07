@@ -1,115 +1,94 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        .btn{
-            font-size: 14px;
-            background: skyblue;
-            display: inline-block;
-            padding: 5px 10px;
-            border-radius: 10px;
-            cursor: pointer;
-        }
+      .btn {
+        font-size: 14px;
+        background: skyblue;
+        display: inline-block;
+        padding: 5px 10px;
+        border-radius: 10px;
+        cursor: pointer;
+      }
 
-        .modal{
-            width: 100px;height: 100px;
-            background: pink;
-            display: none;
-        }
+      .modal {
+        width: 100px;
+        height: 100px;
+        background: pink;
+        display: none;
+      }
     </style>
-</head>
-<body>
-    <div class="box" id="box1">
-        test1
-    </div>
-    <div class="box" id="box2">
-        test2
-    </div>
-    <div class="box">
-        test3
-    </div>
-    <div class="box">
-        test4
-    </div>
-
-   
+  </head>
+  <body>
+    <div class="box" id="box1">test1</div>
+    <div class="box" id="box2">test2</div>
+    <div class="box">test3</div>
+    <div class="box">test4</div>
 
     <div class="btn">변경/보이기</div>
     <!-- <div class="btn">변경/안보이기</div> -->
-    <div class="modal">
-        test
-    </div>
+    <div class="modal">test</div>
     <script>
-        //변수
-        const boxElm = document.getElementsByClassName('box')
-        const btnElm = document.getElementsByClassName('btn');
-        const modalElm = document.getElementsByClassName('modal');
-        let eView = true;
+      //변수
+      const boxElm = document.getElementsByClassName("box");
+      const btnElm = document.getElementsByClassName("btn");
+      const modalElm = document.getElementsByClassName("modal");
+      let eView = true;
 
-        //함수
-        function changeColor(color){
-            for(let i=0;i<boxElm.length;i++){
-                boxElm[i].style.color = color
-            }
+      //함수
+      function changeColor(color) {
+        for (let i = 0; i < boxElm.length; i++) {
+          boxElm[i].style.color = color;
         }
+      }
 
-        // function initColor(){
-        //     for(let i=0;i<boxElm.length;i++){
-        //         boxElm[i].style.color = "initial"
-        //     }
-        // }
+      // function initColor(){
+      //     for(let i=0;i<boxElm.length;i++){
+      //         boxElm[i].style.color = "initial"
+      //     }
+      // }
 
-        // btnElm[0].addEventListener("click",function(){
-        //     changeColor('red')
-        //     modalElm[0].style.display = "block";
+      // btnElm[0].addEventListener("click",function(){
+      //     changeColor('red')
+      //     modalElm[0].style.display = "block";
 
+      // })
 
-        // })
+      // btnElm[1].addEventListener("click",function(){
+      //     changeColor('black')
+      //     modalElm[0].style.display = "none";
+      // })
 
-        // btnElm[1].addEventListener("click",function(){
-        //     changeColor('black')
-        //     modalElm[0].style.display = "none";
-        // })
-
-        function vToggle(){
-            if(eView == true){
-                changeColor('red')
-                modalElm[0].style.display = "block";
-                eView = false;
-            }else{
-                changeColor('black')
-                modalElm[0].style.display = "none";
-                eView = true;
-            }
-
+      function vToggle() {
+        if (eView == true) {
+          changeColor("red");
+          modalElm[0].style.display = "block";
+          eView = false;
+        } else {
+          changeColor("black");
+          modalElm[0].style.display = "none";
+          eView = true;
         }
+      }
 
-        
-        
-        
-        //이벤트
-        btnElm[0].addEventListener("click",vToggle)
+      //이벤트
+      btnElm[0].addEventListener("click", vToggle);
 
-        // btnElm[0].addEventListener("click",function(){
-        //     if(eView == true){
-        //         changeColor('red')
-        //         modalElm[0].style.display = "block";
-        //         eView = false;
-        //     }else{
-        //         changeColor('black')
-        //         modalElm[0].style.display = "none";
-        //         eView = true;
-        //     }
+      // btnElm[0].addEventListener("click",function(){
+      //     if(eView == true){
+      //         changeColor('red')
+      //         modalElm[0].style.display = "block";
+      //         eView = false;
+      //     }else{
+      //         changeColor('black')
+      //         modalElm[0].style.display = "none";
+      //         eView = true;
+      //     }
 
-        // })
-
-
-
-
-
+      // })
     </script>
-</body>
+  </body>
 </html>

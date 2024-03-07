@@ -1,57 +1,66 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        *{margin: 0;padding: 0;box-sizing: border-box;}
-        a:link,a:visited{text-decoration: none;color:black}
-        
-        .btn{
-            background: skyblue;
-            display: inline-block;
-            padding: 5px 15px
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      a:link,
+      a:visited {
+        text-decoration: none;
+        color: black;
+      }
 
-        }
-        .btn1{
-            padding: 5px 15px;
-            border: 0px none;
-            background-color: skyblue;
-            cursor: pointer;
-        }
+      .btn {
+        background: skyblue;
+        display: inline-block;
+        padding: 5px 15px;
+      }
+      .btn1 {
+        padding: 5px 15px;
+        border: 0px none;
+        background-color: skyblue;
+        cursor: pointer;
+      }
 
-        .box{
-           width: 200px;
-           height: 200px;
-           background:pink;
-           position: relative;
-           transition: 0.3s;
-        }
+      .box {
+        width: 200px;
+        height: 200px;
+        background: pink;
+        position: relative;
+        transition: 0.3s;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!-- <div class="btn">클릭</div> -->
     <!-- <a href="#" class="btn">클릭</a> -->
     <button class="btn1">클릭</button>
-    <div class="box">
-        view
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <div class="box">view</div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script>
-        // $(".btn1").on("이벤트명",함수)
+      // $(".btn1").on("이벤트명",함수)
 
-        let vToggle = true;
-        $(".btn1").on("click",function(){
-            if(vToggle == true){
-                $(".box").css("left","-100%")
-                vToggle = false;
-            }else{
-                $(".box").css("left","0")
-                vToggle = true;
-            }
-        })
-
+      let vToggle = true;
+      $(".btn1").on("click", function () {
+        if (vToggle == true) {
+          $(".box").css("left", "-100%");
+          vToggle = false;
+        } else {
+          $(".box").css("left", "0");
+          vToggle = true;
+        }
+      });
     </script>
-</body>
+  </body>
 </html>
