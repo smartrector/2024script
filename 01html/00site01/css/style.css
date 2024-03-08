@@ -30,10 +30,31 @@ body {
 }
 
 .swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
   display: flex;
   justify-content: center;
+  /* align-items: center; */
+}
+
+.swiper .bgImage {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.swiper .bgImage.bgImg01 {
+  background-image: url(../img/new_main_visual_bg01.jpg);
+}
+.swiper .bgImage.bgImg02 {
+  background-image: url(../img/new_main_visual_bg02.jpg);
+}
+.swiper .bgImage.bgImg03 {
+  background-image: url(../img/new_main_visual_bg03.jpg);
+}
+.swiper .bgImage.bgImg04 {
+  background-image: url(../img/new_main_visual_bg04.jpg);
+}
+
+.txtWrap {
+  width: 1240px;
+  display: flex;
   align-items: center;
 }
