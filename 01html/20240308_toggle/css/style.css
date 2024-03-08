@@ -10,16 +10,21 @@ html,body{
 }
 
 body{
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
+    height: 200%;
 }
 
 .toggle_button{
     width: 20px;
     height: 20px;
     /* background: skyblue; */
-    position: relative;
+    /* position: relative; */
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    cursor:pointer;
 
 }
 .toggle_button > .bar{
