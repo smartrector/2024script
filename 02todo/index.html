@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="inpWrap">
+      <input type="text" clas="inp" />
+      <button class="btn1">오늘의 할일</button>
+    </div>
+    <ul class="viewData">
+      <!-- <li class="viewList">
+        <div class="txt">자바스크립트</div>
+        <div class="iconWrap">
+          <a href="#"><i class="fa-solid fa-check"></i></a>
+          <a href="#"><i class="fa-solid fa-trash"></i></a>
+        </div>
+      </li> -->
+    </ul>
+    <script>
+      let viewElm = document.querySelector(".viewData");
+
+      let listData = [
+        {title: "스크립트", check: true},
+        {title: "자바", check: false},
+        {title: "웹기획", check: false},
+        {title: "node", check: true},
+        {title: "node", check: false},
+        {title: "node", check: false},
+        {title: "node", check: false},
+      ];
+
+      text = "";
+      for (let i = 0; i < listData.length; i++) {
+        if (listData[i].check) {
+          text += '<li class="viewList active">';
+        } else {
+          text += '<li class="viewList">';
+        }
+
+        text += '    <div class="txt">자바스크립트</div>';
+        text += '    <div class="iconWrap">';
+
+        if (listData[i].check) {
+          text +=
+            '    <a href="#"><i class="fa-regular fa-square-check"></i></a>';
+        } else {
+          text += '    <a href="#"><i class="fa-regular fa-square"></i></a>';
+        }
+
+        text += '    <a href="#"><i class="fa-solid fa-trash"></i></a>';
+        text += "    </div>";
+        text += "</li>";
+      }
+
+      viewElm.innerHTML = text;
+    </script>
+  </body>
+</html>
