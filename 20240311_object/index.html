@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <div class="name">이춘식</div>
+    <div class="color">이춘식</div> -->
+
+    <table class="table"></table>
+
+    <script>
+      var car = [
+        {
+          name: "sonata",
+          speed: 10,
+          color: "white",
+          door: 4,
+          start: function () {
+            return this.speed;
+          },
+        },
+        {
+          name: "carnival",
+          speed: 10,
+          color: "red",
+          door: 4,
+          start: function () {
+            return this.speed + 100;
+          },
+        },
+        {
+          name: "carnival1",
+          speed: 10,
+          color: "red",
+          door: 4,
+          start: function () {
+            return this.speed + 100;
+          },
+        },
+        {
+          name: "carnival2",
+          speed: 10,
+          color: "red",
+          door: 4,
+          start: function () {
+            return this.speed + 100;
+          },
+        },
+        {
+          name: "carnival3",
+          speed: 10,
+          color: "red",
+          door: 4,
+          start: function () {
+            return this.speed + 100;
+          },
+        },
+      ];
+
+      let text = "<tr><td>이름</td><td>색상</td><td>스피드</td></tr>";
+
+      //   let text = "";
+      for (let i = 0; i < car.length; i++) {
+        text = text + "<tr>";
+        text = text + "    <td>" + car[i].name + "</td>";
+        text = text + "    <td>" + car[i].color + "</td>";
+        text = text + "    <td>" + car[i].speed + "</td>";
+        text = text + "</tr>";
+        // text += "<li>sdfasdaf</li>";
+      }
+
+      document.querySelector(".table").innerHTML = text;
+    </script>
+  </body>
+</html>
