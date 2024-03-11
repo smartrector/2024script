@@ -104,3 +104,38 @@ body {
   font-weight: bold;
   color: white;
 }
+
+.cardWrap {
+  width: 100%;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.cardWrap img {
+  display: block;
+  width: 100%;
+  transition: 0.3s;
+  transform: scale(1);
+}
+
+.cardWrap:hover img {
+  transform: scale(1.1);
+}
+
+.cardWrap .txtWrap {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(1, 41, 93, 0.56);
+  padding: 20px 0;
+}
+
+/* common */
+.colorGray {
+  background-color: #eee !important;
+}
+
+.boxShadow {
+  box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.3);
+}

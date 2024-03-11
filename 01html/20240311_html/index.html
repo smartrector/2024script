@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        /* display: flex;
+        justify-content: center;
+        align-items: center; */
+      }
+      .box {
+        background: pink;
+        /* padding-top: 100px; */
+      }
+      h3 {
+        width: 300px;
+        height: 100px;
+        background-color: skyblue;
+
+        /* 본인이 center에 놓는거 */
+        /* margin: 0 auto; */
+
+        /* position: absolute;
+        left: 50%;
+        top: 50%; */
+        /* margin-left: calc(-300px / 2);
+        margin-top: calc(-100px / 2); */
+
+        /* transform: translateX(-50%) translateY(-50%); */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+        가운데 정렬
+        display:/
+        block : width,height
+        inline : width(x), height(x)
+        inline-block : width,height
+        flex :  width,height
+        display:none
+   
+    -->
+
+    <h3 style="display: block">test</h3>
+
+    <style>
+      .box1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: brown;
+        position: relative;
+        width: 300px;
+        height: 300px;
+      }
+
+      .cir {
+        width: 100px;
+        height: 100px;
+
+        position: absolute;
+        border-radius: 50%;
+        transition: 0.3s; /* 원애니메이션 */
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .cir.circle1 {
+        background: yellow;
+        transform: translateX(-50px);
+      }
+      .cir.circle2 {
+        background: pink;
+        transform: translate(50px);
+      }
+      .cir.circle3 {
+        background: skyblue;
+      }
+
+      .box1:hover .cir.circle1,
+      .box1:hover .cir.circle2 {
+        transform: translateX(0px);
+      }
+    </style>
+
+    <div class="box1">
+      <div class="cir circle1">1</div>
+      <div class="cir circle2">2</div>
+      <div class="cir circle3">2</div>
+    </div>
+
+    <style>
+      .box2 {
+        background: blueviolet;
+        width: 200px;
+        height: 200px;
+        border: 1px solid #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .ret {
+        background: white;
+      }
+    </style>
+
+    <div class="box2">
+      <div class="ret ret1">1</div>
+      <div class="ret ret2">2</div>
+      <div class="ret ret3">2</div>
+    </div>
+
+    <div class="wrap">
+      <!-- pof w100% -->
+      <nav class="navWrap">
+        <!-- w 1120px moauto-->
+
+        <h1>logo</h1>
+        <div class="gnb">
+          <ul>
+            <li><a href="#">menu1</a></li>
+            <li><a href="#">menu1</a></li>
+            <li><a href="#">menu1</a></li>
+            <li><a href="#">menu1</a></li>
+            <li><a href="#">menu1</a></li>
+          </ul>
+        </div>
+        <div class="utileMenu">
+          <ul>
+            <li><a href="#">sns</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="visual"></div>
+    <style>
+      .container {
+        width: 1120px;
+        margin: 0 auto;
+      }
+      .gray {
+        background: gray;
+      }
+    </style>
+
+    <div class="gray">
+      <div class="container">1</div>
+    </div>
+    <div class="container">2</div>
+    <div class="container">3</div>
+    <div class="container">4</div>
+  </body>
+</html>
