@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+/* .visualtext {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+} */
+
+.visual {
+  background: skyblue;
+}
+
+.cont-1st .card {
+  transition: 0.3s;
+  transform: translate(0px, 0px);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+.cont-1st .cardWrap:hover .card {
+  transform: translate(-10px, -10px);
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+}
+.cont-1st .card img {
+  height: 150px;
+}
