@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: skyblue;
+        position: relative;
+        transition: 0.3s;
+        left: 0;
+      }
+
+      .box.active {
+        background: pink;
+        left: -100px;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="btn">추가</button>
+    <button class="btn_out">제거</button>
+    <div class="box"></div>
+
+    <a href=""></a>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      //   document
+      //     .getElementsByClassName("btn")[0]
+      //     .addEventListener("click", function () {
+      //       document.querySelector(".box").classList.add("active");
+      //     });
+
+      //   document
+      //     .querySelector("body > button.btn_out")
+      //     .addEventListener("click", () => {
+      //       document.querySelector(".box").classList.remove("active");
+      //     });
+
+      $(".btn").on("click", function () {
+        $(".box").addClass("active");
+        // let attrView = $(".box").attr("class","");
+        // console.log(attrView);
+        // $(".box").css("display", "none");
+      });
+
+      $(".btn_out").click(function () {
+        $("body > div.box").removeClass("active");
+      });
+
+      //   document.getElementsByClassName("box")[0].innerHTML = "홍길동";
+
+      //   function fn() {
+      //     return 100;
+      //   }
+
+      //   let fn = function () {
+      //     return 1000;
+      //   };
+
+      let fn = (a, b) => 1000 + a + b;
+
+      let num = fn(10, 100);
+      console.log(num);
+    </script>
+  </body>
+</html>
