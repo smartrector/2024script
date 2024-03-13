@@ -27,3 +27,7 @@
 .const-2st .view {
   height: 500px;
 }
+
+.bg-gray {
+  background: #eee;
+}

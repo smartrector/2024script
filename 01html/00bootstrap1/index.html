@@ -24,6 +24,21 @@
       referrerpolicy="no-referrer"
     />
 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+      integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+      integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
     <link rel="stylesheet" href="./css/style.css" />
   </head>
 
@@ -236,6 +251,67 @@
       </div>
     </div>
 
+    <!-- customer -->
+    <div class="bg-gray cont-3st">
+      <div class="container">
+        <h2>CUSTOMER</h2>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat,
+          possimus!
+        </p>
+        <div class="owl-carousel slide1">
+          <!-- item1 start -->
+          <div class="item">
+            <img src="./images/user.svg" alt="" />
+            <div class="txtBody">
+              <h3>Lorem, ipsum dolor.</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint,
+                soluta.
+              </p>
+            </div>
+          </div>
+          <!-- item1 end -->
+          <!-- item1 start -->
+          <div class="item">
+            <img src="./images/user.svg" alt="" />
+            <div class="txtBody">
+              <h3>Lorem, ipsum dolor.</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint,
+                soluta.
+              </p>
+            </div>
+          </div>
+          <!-- item1 end -->
+          <!-- item1 start -->
+          <div class="item">
+            <img src="./images/user.svg" alt="" />
+            <div class="txtBody">
+              <h3>Lorem, ipsum dolor.</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint,
+                soluta.
+              </p>
+            </div>
+          </div>
+          <!-- item1 end -->
+          <!-- item1 start -->
+          <div class="item">
+            <img src="./images/user.svg" alt="" />
+            <div class="txtBody">
+              <h3>Lorem, ipsum dolor.</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint,
+                soluta.
+              </p>
+            </div>
+          </div>
+          <!-- item1 end -->
+        </div>
+      </div>
+    </div>
+
     <main></main>
     <footer>
       <!-- place footer here -->
@@ -258,6 +334,13 @@
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"
       integrity="sha512-IsNh5E3eYy3tr/JiX2Yx4vsCujtkhwl7SLqgnwLNgf04Hrt9BT9SXlLlZlWx+OK4ndzAoALhsMNcCmkggjZB1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+      integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
@@ -291,6 +374,17 @@
           enabled: true,
         },
         // other options
+      });
+
+      $(".slide1").owlCarousel({
+        loop: true,
+        autoplay: true,
+        dots: true,
+        responsive: {
+          0: {items: 1},
+          760: {items: 2},
+          990: {items: 3},
+        },
       });
     </script>
   </body>
