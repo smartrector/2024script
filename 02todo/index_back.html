@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="inpWrap">
+      <input type="text" class="inp" />
+      <button class="btn">오늘의 할일</button>
+    </div>
+    <ul class="viewData">
+      <!-- <li class="viewList">
+        <div class="text">스크립트</div>
+        <div class="iconWrap">
+          <a href="#">check</a>
+          <a href="#">trash</a>
+        </div>
+      </li> -->
+    </ul>
+
+    <script>
+      // crud post, get, put, delete
+      //
+
+      let btnElm = document.querySelector(".btn");
+      let inpElm = document.querySelector(".inp");
+      let viewDataElm = document.querySelector(".viewData");
+
+      let todoData = [
+        {
+          title: "자바스크립트",
+          check: false,
+        },
+        {
+          title: "몽고DB",
+          check: false,
+        },
+      ];
+
+      btnElm.addEventListener("click", btnClick);
+
+      function btnClick() {
+        console.log(inpElm.value);
+        // todoData.push(inpElm.value)
+      }
+
+      function dataView() {
+        let txt = "";
+        for (let i = 0; i < todoData.length; i++) {
+          txt += '<li class="viewList">';
+          txt += '  <div class="text">' + todoData[i].title + "</div>";
+          txt += '  <div class="iconWrap">';
+          txt += '    <a href="#">check</a>';
+          txt += '    <a href="#">trash</a>';
+          txt += "  </div>";
+          txt += "</li>";
+        }
+        viewDataElm.innerHTML = txt;
+      }
+
+      dataView();
+    </script>
+  </body>
+</html>
