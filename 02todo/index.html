@@ -75,13 +75,24 @@
           text += '    <div class="iconWrap">';
 
           if (listData[i].check) {
+            //check true일때
             text +=
-              '    <a href="#"><i class="fa-regular fa-square-check"></i></a>';
+              '    <a href="#" onclick="check(' +
+              i +
+              ')"><i class="fa-regular fa-square-check"></i></a>';
           } else {
-            text += '    <a href="#"><i class="fa-regular fa-square"></i></a>';
+            //check false 일때
+            text +=
+              '    <a href="#" onclick="check(' +
+              i +
+              ')"><i class="fa-regular fa-square"></i></a>';
           }
 
-          text += '    <a href="#"><i class="fa-solid fa-trash"></i></a>';
+          // text += `    <a href="#" onclick="del(${i})"><i class="fa-solid fa-trash"></i></a>`;
+          text +=
+            '    <a href="#" onclick="del(' +
+            i +
+            ')"><i class="fa-solid fa-trash"></i></a>';
           text += "    </div>";
           text += "</li>";
         }
@@ -89,6 +100,28 @@
         viewElm.innerHTML = text;
       }
       view();
+
+      function del(idx) {
+        listData.splice(idx, 1);
+
+        //localstorage에 json data 수정업데이트
+        let valueData = JSON.stringify(listData);
+        localStorage.setItem("todoData", valueData);
+
+        //다시리스트호출
+        view();
+      }
+
+      function check(idx) {
+        listData[idx].check = !listData[idx].check;
+
+        //localstorage에 json data 수정업데이트
+        let valueData = JSON.stringify(listData);
+        localStorage.setItem("todoData", valueData);
+
+        //다시리스트호출
+        view();
+      }
     </script>
   </body>
 </html>
