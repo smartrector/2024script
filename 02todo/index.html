@@ -29,6 +29,15 @@
     </ul>
 
     <script>
+      // CRUD
+      // 1. 디자인완료( 테스트 화면 )
+      // 2. 입력창에 자료입력 -> 버튼 클릭 -> 입력창 글씨삭제
+      // 3. 자료입력안됨 -> 버튼클릭 -> 에러메세지(자료입력하세요)
+      // 4. 데이터 푸쉬( listData = []) (localstorage 같이)
+      // 5. listData = [] / localstorage 자료 출력
+      // 6. 수정이벤트 제작
+      // 7. 삭제이벤트 제작
+
       let viewElm = document.querySelector(".viewData");
       //   document.querySelectorAll("body > div.viewData")[0]
       //   document.getElementsByClassName("viewData")[0]
@@ -53,6 +62,7 @@
           inpElm.value = ""; // input창 초기화
         } else {
           alert("오늘의 할일을 입력하세요"); //오류
+          inpElm.focus();
         }
       });
 
