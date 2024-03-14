@@ -44,13 +44,25 @@
           let value = {title: inpElm.value, check: false};
           listData.push(value);
 
+          //localstorage에 json data update
+          let valueData = JSON.stringify(listData);
+          console.log(valueData);
+          localStorage.setItem("todoData", valueData);
+
           view();
+          inpElm.value = ""; // input창 초기화
         } else {
           alert("오늘의 할일을 입력하세요"); //오류
         }
       });
 
       function view() {
+        if (localStorage.length > 0) {
+          let localData = localStorage.getItem("todoData");
+          console.log(JSON.parse(localData));
+          listData = JSON.parse(localData);
+        }
+
         text = "";
         for (let i = 0; i < listData.length; i++) {
           if (listData[i].check) {
