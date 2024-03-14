@@ -15,7 +15,7 @@
   </head>
   <body>
     <div class="inpWrap">
-      <input type="text" clas="inp" />
+      <input type="text" class="inp" />
       <button class="btn1">오늘의 할일</button>
     </div>
     <ul class="viewData">
@@ -33,40 +33,50 @@
       //   document.querySelectorAll("body > div.viewData")[0]
       //   document.getElementsByClassName("viewData")[0]
 
-      let listData = [
-        {title: "스크립트", check: true},
-        {title: "자바", check: false},
-        {title: "웹기획", check: false},
-        {title: "node", check: true},
-        {title: "node", check: false},
-        {title: "node", check: false},
-        {title: "node", check: false},
-      ];
+      let btnElm = document.querySelector(".btn1");
+      let inpElm = document.querySelector(".inp");
 
-      text = "";
-      for (let i = 0; i < listData.length; i++) {
-        if (listData[i].check) {
-          text += '<li class="viewList active">';
+      let listData = [];
+
+      btnElm.addEventListener("click", function () {
+        if (inpElm.value != "") {
+          console.log(inpElm.value);
+          let value = {title: inpElm.value, check: false};
+          listData.push(value);
+
+          view();
         } else {
-          text += '<li class="viewList">';
+          alert("오늘의 할일을 입력하세요"); //오류
+        }
+      });
+
+      function view() {
+        text = "";
+        for (let i = 0; i < listData.length; i++) {
+          if (listData[i].check) {
+            text += '<li class="viewList active">';
+          } else {
+            text += '<li class="viewList">';
+          }
+
+          text += '    <div class="txt">' + listData[i].title + "</div>";
+          text += '    <div class="iconWrap">';
+
+          if (listData[i].check) {
+            text +=
+              '    <a href="#"><i class="fa-regular fa-square-check"></i></a>';
+          } else {
+            text += '    <a href="#"><i class="fa-regular fa-square"></i></a>';
+          }
+
+          text += '    <a href="#"><i class="fa-solid fa-trash"></i></a>';
+          text += "    </div>";
+          text += "</li>";
         }
 
-        text += '    <div class="txt">자바스크립트</div>';
-        text += '    <div class="iconWrap">';
-
-        if (listData[i].check) {
-          text +=
-            '    <a href="#"><i class="fa-regular fa-square-check"></i></a>';
-        } else {
-          text += '    <a href="#"><i class="fa-regular fa-square"></i></a>';
-        }
-
-        text += '    <a href="#"><i class="fa-solid fa-trash"></i></a>';
-        text += "    </div>";
-        text += "</li>";
+        viewElm.innerHTML = text;
       }
-
-      viewElm.innerHTML = text;
+      view();
     </script>
   </body>
 </html>
