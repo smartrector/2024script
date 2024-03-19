@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>kakao search</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+      integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      ul,
+      li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container py-3">
+      <form class="search-form d-flex gap-1">
+        <input
+          type="text"
+          class="inp form-control"
+          placeholder="검색어를 입력하세요"
+          name="query"
+        />
+        <button class="btn btn-primary">click</button>
+      </form>
+    </div>
+    <div class="container">
+      <ul class="lists"></ul>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js"></script>
+    <script>
+      // global init
+      const auth = "KakaoAK 6e06c47b69afc400ef46abaab6dae622";
+      const url = "https://dapi.kakao.com/v2/search/web";
+
+      // function
+      function onSubmit(e) {
+        e.preventDefault();
+        let query = $(".inp").val().trim();
+        // let query = $(this).find("input[name=query]").val();
+        console.log(query);
+
+        if (query != "") {
+          axios
+            .get(url, {
+              params: {query: query},
+              headers: {Authorization: auth},
+            })
+            .then(onSuccess);
+        } else {
+          $(".inp").focus(); // input focus
+        }
+      }
+
+      function onSuccess(res) {
+        // console.log(res.data);
+        let v = res.data.documents;
+        console.log(v);
+
+        let txt = "";
+        for (let i = 0; i < v.length; i++) {
+          //   txt += "<li>" + v[i].title + "</li>";
+          txt += "<li>";
+          txt += "  <h4>" + v[i].title + "</h4>";
+          txt += "  <p>" + v[i].contents + "</p>";
+          txt += "  <p>" + v[i].datetime + "</p><hr>";
+          txt += "</li>";
+        }
+        console.log(txt);
+        // $(".lists").html(txt);
+
+        document.querySelector(".lists").innerHTML = txt;
+      }
+
+      // event
+      //   $(".search-form").submit(function(){실행문장});
+      //   $(".search-form").submit(함수이름);
+      $(".search-form").submit(onSubmit);
+    </script>
+  </body>
+</html>
