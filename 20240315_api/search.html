@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="searchWrap">
+      <form class="search-form">
+        <input type="text" name="query" class="inp" />
+        <button>검색</button>
+      </form>
+    </div>
+    <ul class="lists"></ul>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.7/axios.min.js"
+      integrity="sha512-NQfB/bDaB8kaSXF8E77JjhHG5PM6XVRxvHzkZiwl3ddWCEPBa23T76MuWSwAJdMGJnmQqM0VeY9kFszsrBEFrQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script>
+      /*************** global init **************/
+      var auth = "KakaoAK 6e4d4a95852ce2aaec202c0283238b63";
+      var kakaoURL = "https://dapi.kakao.com/";
+
+      /************** user function *************/
+      function getPath(cate) {
+        return kakaoURL + (cate === "book" ? "v3" : "v2") + "/search/" + cate;
+      }
+      function getParams(query) {
+        return {
+          params: {query: query},
+          headers: {Authorization: auth},
+        };
+      }
+
+      function onSuccess(res) {
+        console.log(res.data);
+        var v = res.data;
+        setWebLists(v.documents);
+      }
+
+      function setWebLists(r) {
+        $(".lists").empty().attr({class: "lists web", style: ""});
+        r.forEach(function (v, i) {
+          var html = '<li class="list">';
+          html +=
+            '<a class="title" href="' +
+            v.url +
+            '" target="_blank">' +
+            v.title +
+            "</a>";
+          html += '<p class="content">' + v.contents + "</p>";
+          html +=
+            '<a class="link" href="' +
+            v.url +
+            '" target="_blank">' +
+            v.url +
+            "</a>";
+          //   html +=
+          //     '<div class="dt">' +
+          //     moment(v.datetime).format("YYYY-MM-DD HH:mm:ss") +
+          //     "</div>";
+          html += "</li>";
+          $(".lists").append(html);
+        });
+      }
+
+      function onSubmit(e) {
+        e.preventDefault();
+
+        query = $(this).find('input[name="query"]').val().trim();
+        console.log(getParams(query));
+        console.log(getPath("web"));
+
+        // page = 1;
+        if (query && query !== "")
+          axios.get(getPath("web"), getParams(query)).then(onSuccess);
+        else $(this).find('input[name="query"]').focus();
+      }
+
+      /*************** event init ***************/
+      $(".search-form").submit(onSubmit);
+    </script>
+  </body>
+</html>
