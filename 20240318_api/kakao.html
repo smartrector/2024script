@@ -89,7 +89,12 @@
         for (let i = 0; i < v.length; i++) {
           //   txt += "<li>" + v[i].title + "</li>";
           txt += "<li>";
-          txt += "  <h4>" + v[i].title + "</h4>";
+          txt +=
+            "  <h4><a href='" +
+            v[i].url +
+            "' target='_blank'> " +
+            v[i].title +
+            "</a></h4>";
           txt += "  <p>" + v[i].contents + "</p>";
           txt +=
             "  <p>" +
