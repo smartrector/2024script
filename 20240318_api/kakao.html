@@ -47,20 +47,7 @@
     <div class="container">
       <ul class="lists"></ul>
       <nav class="d-flex justify-content-center">
-        <ul class="pagination">
-          <li class="page-item">
-            <span class="page-link">
-              <i class="fa-solid fa-arrow-left"></i>
-            </span>
-          </li>
-          <li class="page-item"><span class="page-link">1</span></li>
-
-          <li class="page-item">
-            <span class="page-link">
-              <i class="fa-solid fa-arrow-right"></i>
-            </span>
-          </li>
-        </ul>
+        <ul class="pagination"></ul>
       </nav>
     </div>
 
@@ -135,6 +122,41 @@
           "endPage = ",
           endPage
         );
+
+        let textNum = "";
+        if (startPage == 1) {
+          textNum = `<li class="page-item disabled" >
+            <span class="page-link">
+              <i class="fa-solid fa-arrow-left"></i>
+            </span>
+          </li>`;
+        } else {
+          textNum = `<li class="page-item" onclick='onPageClick(${
+            startPage - 1
+          })'>
+            <span class="page-link">
+              <i class="fa-solid fa-arrow-left"></i>
+            </span>
+          </li>`;
+        }
+
+        for (let i = startPage; i <= endPage; i++) {
+          textNum += `<li class="page-item ${
+            page == i ? "active" : ""
+          }" onclick='onPageClick(${i})'><span class="page-link">${i}</span></li>`;
+        }
+        textNum += `<li class="page-item" onclick='onPageClick(${endPage + 1})'>
+            <span class="page-link">
+              <i class="fa-solid fa-arrow-right"></i>
+            </span>
+          </li>`;
+
+        $(".pagination").html(textNum);
+      }
+
+      function onPageClick(idx) {
+        page = Number(idx);
+        axios.get(url, getParams(query)).then(onSuccess);
       }
 
       // event
