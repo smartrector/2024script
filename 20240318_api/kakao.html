@@ -11,6 +11,13 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <style>
       * {
         margin: 0;
@@ -32,12 +39,29 @@
           class="inp form-control"
           placeholder="검색어를 입력하세요"
           name="query"
+          value="블랙핑크"
         />
         <button class="btn btn-primary">click</button>
       </form>
     </div>
     <div class="container">
       <ul class="lists"></ul>
+      <nav class="d-flex justify-content-center">
+        <ul class="pagination">
+          <li class="page-item">
+            <span class="page-link">
+              <i class="fa-solid fa-arrow-left"></i>
+            </span>
+          </li>
+          <li class="page-item"><span class="page-link">1</span></li>
+
+          <li class="page-item">
+            <span class="page-link">
+              <i class="fa-solid fa-arrow-right"></i>
+            </span>
+          </li>
+        </ul>
+      </nav>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -47,29 +71,32 @@
       const auth = "KakaoAK 6e06c47b69afc400ef46abaab6dae622";
       const url = "https://dapi.kakao.com/v2/search/web";
 
+      let query;
+      let page = 1;
+      let size = 3;
+
       // function
       function onSubmit(e) {
         e.preventDefault();
-        let query = $(".inp").val().trim();
-        // let query = $(this).find("input[name=query]").val();
+        query = $(".inp").val().trim();
+        // let query = $(this).find("input[name=query]").val().trim();
+        //document.querySelector(".inp").value
         console.log(query);
 
         if (query != "") {
-          axios
-            .get(url, {
-              params: {query: query},
-              headers: {Authorization: auth},
-            })
-            .then(onSuccess);
+          axios.get(url, getParams(query)).then(onSuccess);
+          // axios.get().then(function(res){}).catch()
         } else {
           $(".inp").focus(); // input focus
         }
       }
 
       function onSuccess(res) {
-        // console.log(res.data);
+        console.log(res.data);
         let v = res.data.documents;
-        console.log(v);
+        // console.log(v);
+
+        setPager(res.data.meta.pageable_count); //제공되어진 게시물 데이터 count
 
         let txt = "";
         for (let i = 0; i < v.length; i++) {
@@ -80,16 +107,42 @@
           txt += "  <p>" + v[i].datetime + "</p><hr>";
           txt += "</li>";
         }
-        console.log(txt);
-        // $(".lists").html(txt);
+        // console.log(txt);
+        $(".lists").html(txt);
 
-        document.querySelector(".lists").innerHTML = txt;
+        // document.querySelector(".lists").innerHTML = txt;
+      }
+
+      function getParams(query) {
+        return {
+          params: {query: query, size: size, page: page},
+          headers: {Authorization: auth},
+        };
+      }
+
+      function setPager(totalRecord) {
+        let pagerCnt = 5;
+        let totalPage = Math.ceil(totalRecord / size);
+
+        let startPage = Math.floor((page - 1) / pagerCnt) * pagerCnt + 1;
+        let endPage = startPage + pagerCnt - 1;
+
+        console.log(
+          "totalpage = ",
+          totalPage,
+          "startPage = ",
+          startPage,
+          "endPage = ",
+          endPage
+        );
       }
 
       // event
       //   $(".search-form").submit(function(){실행문장});
       //   $(".search-form").submit(함수이름);
       $(".search-form").submit(onSubmit);
+
+      $(".btn").trigger("click");
     </script>
   </body>
 </html>
