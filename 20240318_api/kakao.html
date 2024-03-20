@@ -39,7 +39,6 @@
           class="inp form-control"
           placeholder="검색어를 입력하세요"
           name="query"
-          value="블랙핑크"
         />
         <button class="btn btn-primary">click</button>
       </form>
@@ -53,6 +52,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
     <script>
       // global init
       const auth = "KakaoAK 6e06c47b69afc400ef46abaab6dae622";
@@ -91,7 +91,10 @@
           txt += "<li>";
           txt += "  <h4>" + v[i].title + "</h4>";
           txt += "  <p>" + v[i].contents + "</p>";
-          txt += "  <p>" + v[i].datetime + "</p><hr>";
+          txt +=
+            "  <p>" +
+            moment(v[i].datetime).format("YY-MM-DD HH:mm:ss") +
+            "</p><hr>";
           txt += "</li>";
         }
         // console.log(txt);
@@ -110,6 +113,8 @@
       function setPager(totalRecord) {
         let pagerCnt = 5;
         let totalPage = Math.ceil(totalRecord / size);
+
+        if (totalPage > 50) totalPage = 50;
 
         let startPage = Math.floor((page - 1) / pagerCnt) * pagerCnt + 1;
         let endPage = startPage + pagerCnt - 1;
@@ -145,11 +150,22 @@
             page == i ? "active" : ""
           }" onclick='onPageClick(${i})'><span class="page-link">${i}</span></li>`;
         }
-        textNum += `<li class="page-item" onclick='onPageClick(${endPage + 1})'>
+
+        if (endPage == totalPage) {
+          textNum += `<li class="page-item disabed">
             <span class="page-link">
               <i class="fa-solid fa-arrow-right"></i>
             </span>
           </li>`;
+        } else {
+          textNum += `<li class="page-item" onclick='onPageClick(${
+            endPage + 1
+          })'>
+            <span class="page-link">
+              <i class="fa-solid fa-arrow-right"></i>
+            </span>
+          </li>`;
+        }
 
         $(".pagination").html(textNum);
       }
@@ -164,7 +180,7 @@
       //   $(".search-form").submit(함수이름);
       $(".search-form").submit(onSubmit);
 
-      $(".btn").trigger("click");
+      // $(".btn").trigger("click");
     </script>
   </body>
 </html>
