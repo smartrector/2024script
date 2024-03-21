@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button class="findMe">내위치보기</button>
+    <p class="status">아직모름</p>
+    <div class="view"></div>
+
+    <script>
+      //variable
+      const status = document.querySelector(".status");
+      const view = document.querySelector(".view");
+
+      //function
+      function geoFindMe() {
+        function success(position) {
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
+          console.log(position);
+
+          status.textContent = `위도 : ${latitude} / 경도 : ${longitude}`;
+          view.innerHTML = `<a href="https://www.openstreetmap.org/#map=18/${latitude}/${longitude}" target="_blank">지도보기</a>`;
+        }
+
+        function error() {
+          status.textContent = "현재 위치를 찾을수 없네요. ";
+        }
+
+        if (!navigator.geolocation) {
+          status.textContent = "브라우저가 지원안함.";
+        } else {
+          status.textContent = "위치파악중";
+          navigator.geolocation.getCurrentPosition(success, error);
+        }
+      }
+
+      //event
+      document.querySelector(".findMe").addEventListener("click", geoFindMe);
+    </script>
+  </body>
+</html>
