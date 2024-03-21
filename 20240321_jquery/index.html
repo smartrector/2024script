@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      ul,
+      li {
+        list-style: none;
+      }
+      .wrap {
+        width: 400px;
+      }
+      .tabmenu {
+        display: flex;
+      }
+      .tabmenu li {
+        padding: 10px 20px;
+        background: #eee;
+        cursor: pointer;
+      }
+      .tabmenu li.active {
+        background: skyblue;
+      }
+
+      .content div {
+        display: none;
+        padding: 20px;
+      }
+      .content div:nth-child(1) {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <ul class="tabmenu">
+        <li class="active">tab1</li>
+        <li>tab2</li>
+        <li>tab3</li>
+      </ul>
+      <div class="content">
+        <div>
+          1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure
+          aspernatur, eveniet perferendis harum rem quis optio sapiente odit
+          praesentium doloremque? Magni ipsum dolorem dignissimos beatae
+          molestias hic corporis eius ullam?
+        </div>
+        <div>
+          2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure
+          aspernatur, eveniet perferendis harum rem quis optio sapiente odit
+          praesentium doloremque? Magni ipsum dolorem dignissimos beatae
+          molestias hic corporis eius ullam?
+        </div>
+        <div>
+          3. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure
+          aspernatur, eveniet perferendis harum rem quis optio sapiente odit
+          praesentium doloremque? Magni ipsum dolorem dignissimos beatae
+          molestias hic corporis eius ullam?
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $(".tabmenu>li").click(function () {
+        console.log($(this).index());
+        $(".tabmenu>li").removeClass("active");
+        $(this).addClass("active");
+
+        $(".content>div").css("display", "none");
+        $(".content>div").eq($(this).index()).css("display", "block");
+      });
+    </script>
+  </body>
+</html>
