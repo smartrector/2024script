@@ -28,7 +28,7 @@
       }
       html,
       body {
-        height: 100%;
+        height: 200%;
       }
       body {
         display: flex;
@@ -49,12 +49,15 @@
       /* layer */
       .glayLayer {
         position: fixed;
-        width: 50%;
-        height: 50%;
-        right: 0;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        /* right: 0;
+        bottom: 0; */
         background-color: rgba(0, 0, 0, 0.3);
         /* opacity: 0.3; */
-        display: flex;
+        display: none;
         justify-content: center;
         align-items: center;
       }
@@ -94,7 +97,9 @@
     <div class="glayLayer">
       <div class="overLayer">
         <div class="closeWrap">
-          <a href="#"><i class="fa-solid fa-xmark"></i></a>
+          <a href="#">
+            <i class="fa-solid fa-xmark"></i>
+          </a>
         </div>
         <img src="./images/img1.jpg" alt="" />
       </div>
@@ -105,9 +110,32 @@
       $(".modal").click(function (e) {
         e.preventDefault();
         // alert("test");
-        let aModal = $(this).attr("href");
+        let aModal = $(this).attr("href"); // 클릭시 이미지 경로 가지고 오기
         console.log(aModal);
+        $(".overLayer img").attr("src", aModal);
+        $(".glayLayer").css({display: "flex"});
       });
+      $(".closeWrap a").click(function (e) {
+        e.preventDefault();
+        $(".glayLayer").css({display: "none"});
+      });
+      $(".glayLayer").click(function () {
+        $(this).hide();
+      });
+
+      let fruit = ["apple", "graph", "orange"];
+
+      let txt = "";
+      fruit.forEach(function (it, i) {
+        // console.log(item);
+        console.log(it);
+        txt += it;
+      });
+      console.log(txt);
+
+      for (let i = 0; i < fruit.length; i++) {
+        console.log(fruit[i]);
+      }
     </script>
   </body>
 </html>
