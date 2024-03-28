@@ -54,11 +54,16 @@ body {
   display: flex;
   gap: 10px;
 }
+
 .gnbMenu a {
   display: block;
   padding: 10px 16px;
+
   /* background: red; */
 }
+/* .gnbMenu li:last-child a {
+  border-right: 1px solid #000;
+} */
 
 /* css responsive  */
 @media screen and (max-width: 1199px) {
