@@ -24,9 +24,15 @@ img {
 }
 
 body {
-  background-color: skyblue;
+  /* background-color: skyblue; */
 }
 
+.header {
+  position: fixed;
+  width: 100%;
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
 .container {
   width: 1200px;
   margin: 0 auto;
@@ -37,6 +43,9 @@ body {
   width: 30px;
   height: 30px;
   background-color: gray;
+}
+.bg-pop {
+  background: peachpuff;
 }
 
 /* container */
