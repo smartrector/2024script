@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <ul class="list">
+        <li>
+          <div class="card">
+            <img src="test.jpg" alt="" />
+            <div class="cardTitle">
+              <h3>
+                <a href="#">
+                  [마감] 2024 넷마블견학프로그램 참가 학교 및 기관 모집
+                </a>
+              </h3>
+              <div class="content">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Distinctio, nisi!
+              </div>
+            </div>
+            <div class="date">공지사항-2024.03.06</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!-- <script src="./data.js"></script>
+    <script>
+      console.log(data);
+    </script> -->
+    <script type="module">
+      import data from "./data.js";
+      console.log(data);
+
+      let listData = "";
+      for (let i = 0; i < 4; i++) {
+        listData += `
+                    <li>
+                    <div class="card">
+                        <img src="test.jpg" alt="" />
+                        <div class="cardTitle">
+                        <h3>
+                            <a href="${data[i].href}">
+                            ${data[i].title}
+                            </a>
+                        </h3>
+                        <div class="content">
+                            ${data[i].content}
+                        </div>
+                        </div>
+                        <div class="date">${data[i].cata}-${data[i].date}</div>
+                    </div>
+                    </li>
+        `;
+      }
+      document.querySelector(".list").innerHTML = listData;
+    </script>
+  </body>
+</html>
