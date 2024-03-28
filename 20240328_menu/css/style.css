@@ -1,0 +1,101 @@
+@charset "utf-8";
+
+/* reset  */
+html,
+body {
+  height: 100%;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a:link,
+a:visited {
+  text-decoration: none;
+  color: #222;
+}
+ul,
+li {
+  list-style: none;
+}
+img {
+  display: block;
+}
+
+body {
+  background-color: skyblue;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.toggle {
+  display: none;
+  width: 30px;
+  height: 30px;
+  background-color: gray;
+}
+
+/* container */
+.layout {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 16px;
+  align-items: center;
+}
+
+/* navigation */
+.gnbMenu {
+}
+.gnbMenu > ul {
+  display: flex;
+  gap: 10px;
+}
+.gnbMenu a {
+  display: block;
+  padding: 10px 16px;
+  /* background: red; */
+}
+
+/* css responsive  */
+@media screen and (max-width: 1199px) {
+  body {
+    background-color: pink;
+  }
+}
+
+@media screen and (max-width: 991px) {
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    width: 100%;
+  }
+  .gnbMenu {
+    background-color: #eee;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .gnbMenu.active {
+    left: 0;
+  }
+  .gnbMenu > ul {
+    flex-direction: column;
+  }
+  .toggle {
+    display: block;
+    z-index: 10;
+  }
+}
+
+@media screen and (max-width: 575px) {
+}
