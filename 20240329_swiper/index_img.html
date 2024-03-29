@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .slideImg {
+        /* background: pink; */
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-position: center;
+        /*background-color: #0ff;
+        background-image: url(./images/img1.jpg);
+        backgroundRepeat: "no-repeat"; */
+        background: #0ff url("images/img1.jpg") no-repeat center;
+        /* background-size: cover; */
+        background-size: 600px;
+      }
+      .slideImg.bgimg01 {
+        background-image: url("images/img1.jpg");
+      }
+      .slideImg.bgimg02 {
+        background-image: url("images/img2.jpg");
+      }
+      .slideImg.bgimg03 {
+        background-image: url("images/img3.jpg");
+      }
+      .slideImg.bgimg04 {
+        background-image: url("images/img4.jpg");
+      }
+      .slideImg.bgimg05 {
+        background-image: url("images/img5.jpg");
+      }
+      .slideImg.bgimg06 {
+        background-image: url("images/img6.jpg");
+      }
+      .slideImg img {
+        width: 100%;
+        display: block;
+      }
+      /* .slideWrap {
+        width: 300px;
+        background: skyblue;
+      } */
+      .wrap {
+        height: 400px;
+        /* overflow: hidden; */
+      }
+    </style>
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+
+    <div class="wrap">
+      <swiper-container class="slideWrap">
+        <swiper-slide class="slideImg bgimg01">test1</swiper-slide>
+        <swiper-slide class="slideImg bgimg02">test2</swiper-slide>
+        <swiper-slide class="slideImg bgimg03">test3</swiper-slide>
+        <swiper-slide class="slideImg bgimg04">test4</swiper-slide>
+        <swiper-slide class="slideImg bgimg05">test5</swiper-slide>
+        <swiper-slide class="slideImg bgimg06">test6</swiper-slide>
+      </swiper-container>
+    </div>
+    <div class="container" style="height: 400px; background: red"></div>
+  </body>
+</html>

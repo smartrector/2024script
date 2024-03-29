@@ -5,41 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
       .slideImg {
         /* background: pink; */
         height: 400px;
-        display: flex;
+        /* display: flex;
         justify-content: center;
-        align-items: center;
-        background-position: center;
-        /*background-color: #0ff;
-        background-image: url(./images/img1.jpg);
-        backgroundRepeat: "no-repeat"; */
-        background: #0ff url("images/img1.jpg") no-repeat center;
-        /* background-size: cover; */
-        background-size: 600px;
+        align-items: center; */
+        background-color: skyblue;
+        overflow: hidden;
       }
-      .slideImg.bgimg01 {
-        background-image: url("images/img1.jpg");
-      }
-      .slideImg.bgimg02 {
-        background-image: url("images/img2.jpg");
-      }
-      .slideImg.bgimg03 {
-        background-image: url("images/img3.jpg");
-      }
-      .slideImg.bgimg04 {
-        background-image: url("images/img4.jpg");
-      }
-      .slideImg.bgimg05 {
-        background-image: url("images/img5.jpg");
-      }
-      .slideImg.bgimg06 {
-        background-image: url("images/img6.jpg");
-      }
+
       .slideImg img {
-        width: 100%;
+        height: 150%;
         display: block;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        /* object-fit: cover; */
+      }
+
+      .textWrap {
+        position: relative;
+        width: 1200px;
+        margin: 0 auto;
+        /* background: pink; */
+        height: 100%;
+        display: flex;
+        align-items: center;
+      }
+      .textWrap.right {
+        justify-content: end;
+        text-align: right;
+      }
+      .textBody {
+        background: white;
+        padding: 20px;
       }
       /* .slideWrap {
         width: 300px;
@@ -49,6 +55,13 @@
         height: 400px;
         /* overflow: hidden; */
       }
+
+      @media screen and (max-width: 1200px) {
+        .textWrap {
+          width: 100%;
+          justify-content: center !important;
+        }
+      }
     </style>
   </head>
   <body>
@@ -56,12 +69,84 @@
 
     <div class="wrap">
       <swiper-container class="slideWrap">
-        <swiper-slide class="slideImg bgimg01">test1</swiper-slide>
-        <swiper-slide class="slideImg bgimg02">test2</swiper-slide>
-        <swiper-slide class="slideImg bgimg03">test3</swiper-slide>
-        <swiper-slide class="slideImg bgimg04">test4</swiper-slide>
-        <swiper-slide class="slideImg bgimg05">test5</swiper-slide>
-        <swiper-slide class="slideImg bgimg06">test6</swiper-slide>
+        <swiper-slide class="slideImg bgimg01">
+          <img src="./images/img1.jpg" alt="" />
+          <div class="textWrap right">
+            <!-- w1200 -->
+            <div class="textBody">
+              <h3>Lorem ipsum dolor sit amet.</h3>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Repudiandae, molestias!
+              </p>
+            </div>
+          </div>
+        </swiper-slide>
+        <swiper-slide class="slideImg bgimg01">
+          <img src="./images/img2.jpg" alt="" />
+          <div class="textWrap">
+            <!-- w1200 -->
+            <div class="textBody">
+              <h3>Lorem ipsum dolor sit amet.</h3>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Repudiandae, molestias!
+              </p>
+            </div>
+          </div>
+        </swiper-slide>
+        <swiper-slide class="slideImg bgimg01">
+          <img src="./images/img3.jpg" alt="" />
+          <div class="textWrap">
+            <!-- w1200 -->
+            <div class="textBody">
+              <h3>Lorem ipsum dolor sit amet.</h3>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Repudiandae, molestias!
+              </p>
+            </div>
+          </div>
+        </swiper-slide>
+        <swiper-slide class="slideImg bgimg01">
+          <img src="./images/img4.jpg" alt="" />
+          <div class="textWrap">
+            <!-- w1200 -->
+            <div class="textBody">
+              <h3>Lorem ipsum dolor sit amet.</h3>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Repudiandae, molestias!
+              </p>
+            </div>
+          </div>
+        </swiper-slide>
+        <swiper-slide class="slideImg bgimg01">
+          <img src="./images/img5.jpg" alt="" />
+          <div class="textWrap">
+            <!-- w1200 -->
+            <div class="textBody">
+              <h3>Lorem ipsum dolor sit amet.</h3>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Repudiandae, molestias!
+              </p>
+            </div>
+          </div>
+        </swiper-slide>
+        <swiper-slide class="slideImg bgimg01">
+          <img src="./images/img6.jpg" alt="" />
+          <div class="textWrap">
+            <!-- w1200 -->
+            <div class="textBody">
+              <h3>Lorem ipsum dolor sit amet.</h3>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Repudiandae, molestias!
+              </p>
+            </div>
+          </div>
+        </swiper-slide>
       </swiper-container>
     </div>
     <div class="container" style="height: 400px; background: red"></div>
