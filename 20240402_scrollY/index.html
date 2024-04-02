@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        height: 300vh;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      ul,
+      li {
+        list-style: none;
+      }
+
+      a:link,
+      a:visited {
+        text-decoration: none;
+        color: #222;
+      }
+
+      .box {
+        width: 100px;
+        height: 100px;
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        background-color: skyblue;
+      }
+      .header {
+        width: 100%;
+        display: flex;
+        /* justify-content: space-between; */
+        height: 60px;
+        padding: 0 16px;
+        background: skyblue;
+        transition: 0.3s;
+      }
+      .header.fixed {
+        position: fixed;
+        background: red;
+      }
+
+      .header.fixed h1 {
+        color: white;
+      }
+
+      .header.fixed .nav a {
+        color: white;
+      }
+
+      .header .nav {
+        margin-left: auto;
+        /* background: skyblue; */
+      }
+      .header .nav ul {
+        display: flex;
+        /* background: red; */
+        height: 100%;
+      }
+      .header .nav a {
+        /* display: block; */
+        height: 100%;
+        padding: 10px 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .header .nav a:hover {
+        background: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">test</div>
+
+    <div class="header">
+      <h1 class="logo">logo</h1>
+      <div class="nav">
+        <ul>
+          <li><a href="#">menu1</a></li>
+          <li><a href="#">menu1</a></li>
+          <li><a href="#">menu1</a></li>
+          <li><a href="#">menu1</a></li>
+        </ul>
+      </div>
+    </div>
+    <script>
+      const boxScroll = document.querySelector(".box");
+      const header = document.querySelector(".header");
+
+      boxScroll.innerHTML = window.pageYOffset;
+
+      window.addEventListener("scroll", function () {
+        let scrollY = window.pageYOffset;
+        console.log(scrollY);
+        boxScroll.innerHTML = scrollY;
+
+        // if (scrollY > 200) {
+        //   header.setAttribute("style", "position:fixed");
+        // } else {
+        //   header.setAttribute("style", "");
+        // }
+
+        if (scrollY > 200) {
+          header.classList.add("fixed");
+        } else {
+          header.classList.remove("fixed");
+        }
+      });
+    </script>
+  </body>
+</html>
