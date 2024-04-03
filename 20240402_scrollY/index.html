@@ -95,10 +95,11 @@
       const boxScroll = document.querySelector(".box");
       const header = document.querySelector(".header");
 
-      boxScroll.innerHTML = window.pageYOffset;
+      let scrollY = window.pageYOffset;
+      boxScroll.innerHTML = scrollY;
 
       window.addEventListener("scroll", function () {
-        let scrollY = window.pageYOffset;
+        scrollY = window.pageYOffset;
         console.log(scrollY);
         boxScroll.innerHTML = scrollY;
 

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      a:link,
+      a:visited {
+        text-decoration: none;
+        color: #222;
+      }
+      ul,
+      li {
+        list-style: none;
+      }
+
+      .box {
+        position: fixed;
+        width: 100px;
+        height: 100px;
+        background: pink;
+        right: 0;
+        top: 0;
+      }
+      .top {
+        position: fixed;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: skyblue;
+        right: 10px;
+        bottom: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      .wrap {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 16px;
+        height: 80px;
+        background: #f00;
+        transition: 0.3s;
+      }
+      .wrap ul {
+        display: flex;
+        height: 100%;
+      }
+      .wrap li {
+        height: 100%;
+        transition: 0.3s;
+      }
+      .wrap li a {
+        display: flex;
+        height: 100%;
+        padding: 0 16px;
+        justify-content: center;
+        align-items: center;
+      }
+      .wrap li:hover {
+        background: skyblue;
+        border-radius: 10px;
+      }
+      .wrap.fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        background-color: rgba(255, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      scroll:
+      <span class="scrollY">0</span>
+    </div>
+    <div class="wrapper">
+      <p>001</p>
+      <p>002</p>
+      <p>003</p>
+      <p>004</p>
+      <p>005</p>
+      <p>006</p>
+      <p>007</p>
+      <p>008</p>
+      <p>009</p>
+      <p>010</p>
+      <p>011</p>
+      <p>012</p>
+      <p>013</p>
+      <p>014</p>
+      <p>015</p>
+      <p>016</p>
+      <p>017</p>
+      <p>018</p>
+      <p>019</p>
+      <p>020</p>
+      <p>021</p>
+      <p>022</p>
+      <p>023</p>
+      <p>024</p>
+      <p>025</p>
+      <p>026</p>
+      <p>027</p>
+      <p>028</p>
+      <p>029</p>
+      <p>030</p>
+      <p>031</p>
+      <p>032</p>
+      <p>033</p>
+      <p>034</p>
+      <p>035</p>
+      <p>036</p>
+      <p>037</p>
+      <p>038</p>
+      <p>039</p>
+      <p>040</p>
+      <p>041</p>
+      <p>042</p>
+      <p>043</p>
+      <p>044</p>
+      <p>045</p>
+      <p>046</p>
+      <p>047</p>
+      <p>048</p>
+      <p>049</p>
+      <p>050</p>
+      <div class="wrap">
+        <h1>logo</h1>
+        <ul>
+          <li><a href="#">menu1</a></li>
+          <li><a href="#">menu2</a></li>
+          <li><a href="#">menu3</a></li>
+          <li><a href="#">menu4</a></li>
+          <li><a href="#">menu5</a></li>
+        </ul>
+      </div>
+      <p>051</p>
+      <p>052</p>
+      <p>053</p>
+      <p>054</p>
+      <p>055</p>
+      <p>056</p>
+      <p>057</p>
+      <p>058</p>
+      <p>059</p>
+      <p>060</p>
+      <p>061</p>
+      <p>062</p>
+      <p>063</p>
+      <p>064</p>
+      <p>065</p>
+      <p>066</p>
+      <p>067</p>
+      <p>068</p>
+      <p>069</p>
+      <p>070</p>
+      <p>071</p>
+      <p>072</p>
+      <p>073</p>
+      <p>074</p>
+      <p>075</p>
+      <p>076</p>
+      <p>077</p>
+      <p>078</p>
+      <p>079</p>
+      <p>080</p>
+      <p>081</p>
+      <p>082</p>
+      <p>083</p>
+      <p>084</p>
+      <p>085</p>
+      <p>086</p>
+      <p>087</p>
+      <p>088</p>
+      <p>089</p>
+      <p>090</p>
+      <p>091</p>
+      <p>092</p>
+      <p>093</p>
+      <p>094</p>
+      <p>095</p>
+      <p>096</p>
+      <p>097</p>
+      <p>098</p>
+      <p>099</p>
+      <p>100</p>
+    </div>
+    <div class="top">top</div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      let wrapTop = $(".wrap").offset().top;
+      console.log(wrapTop);
+
+      //   function scrollFuc() {
+      //     console.log("scroll");
+      //   }
+
+      //   $(window).scroll(scrollFuc);
+
+      $(window).scroll(() => {
+        let scrollY = window.pageYOffset;
+        // console.log(scrollY);
+
+        $(".scrollY").html(scrollY);
+
+        if (wrapTop < scrollY) {
+          console.log("스크롤커짐");
+          $(".wrap").addClass("fixed");
+        } else {
+          console.log("작음");
+          $(".wrap").removeClass("fixed");
+        }
+      });
+    </script>
+  </body>
+</html>
