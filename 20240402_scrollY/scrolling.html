@@ -40,6 +40,13 @@
         justify-content: center;
         align-items: center;
         cursor: pointer;
+        display: none;
+      }
+      .top a {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
       .wrap {
@@ -53,10 +60,13 @@
       .wrap ul {
         display: flex;
         height: 100%;
+        width: 600px;
       }
       .wrap li {
         height: 100%;
         transition: 0.3s;
+        flex: 1 1 auto;
+        /* flex-grow, flex-shrink, flex-basis */
       }
       .wrap li a {
         display: flex;
@@ -68,6 +78,7 @@
       .wrap li:hover {
         background: skyblue;
         border-radius: 10px;
+        flex: 3 1 auto;
       }
       .wrap.fixed {
         position: fixed;
@@ -78,7 +89,6 @@
         background-color: rgba(255, 0, 0, 0.1);
       }
     </style>
-    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
     <div class="box">
@@ -156,7 +166,7 @@
       <p>058</p>
       <p>059</p>
       <p>060</p>
-      <p>061</p>
+      <p id="center">061</p>
       <p>062</p>
       <p>063</p>
       <p>064</p>
@@ -197,7 +207,7 @@
       <p>099</p>
       <p>100</p>
     </div>
-    <div class="top">top</div>
+    <div class="top"><a href="#">top</a></div>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
       integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -227,6 +237,16 @@
           console.log("작음");
           $(".wrap").removeClass("fixed");
         }
+        if ($("body").height() / 2 < scrollY) {
+          $(".top").fadeIn();
+        } else {
+          $(".top").fadeOut();
+        }
+      });
+
+      $(".top > a").click(function (event) {
+        event.preventDefault(); //꼬옥 기억하세요
+        $("html,body").animate({scrollTop: 0}, 300);
       });
     </script>
   </body>
