@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      ul,
+      li {
+        list-style: none;
+      }
+      .container {
+        width: 1200px;
+        margin: 0 auto;
+        background: pink;
+      }
+
+      .card {
+        /* container */
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .card li {
+        /* item */
+        /* flex-grow: 1; */
+        width: 33%;
+        flex: 1 0 auto;
+        background: skyblue;
+      }
+      .card li:nth-of-type(7) {
+        flex-grow: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <ul class="card">
+        <li>text1</li>
+        <li>text2</li>
+        <li>text3</li>
+        <li>text4</li>
+        <li>text5</li>
+        <li>text6</li>
+        <li>text7</li>
+      </ul>
+    </div>
+  </body>
+</html>
