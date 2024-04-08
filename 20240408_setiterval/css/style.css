@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+  color: #333;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.panel {
+  width: 600px;
+  height: 300px;
+  border: 1px solid #000;
+  position: relative;
+}
+.panel .bar {
+  width: 500px;
+  height: 10px;
+  background: red;
+  position: absolute;
+  left: 50px;
+  top: 190px;
+}
+.panel .car {
+  position: absolute;
+  left: 50px;
+  top: 120px;
+}
+.panel .car.rotate {
+  transform: rotateY(180deg);
+}
+
+.btnWrap {
+  width: 600px;
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+  padding: 10px 0;
+}/*# sourceMappingURL=style.css.map */

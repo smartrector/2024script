@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="panel">
+      <div class="bar"></div>
+      <div class="car">
+        <img src="./car.png" alt="" />
+      </div>
+    </div>
+    <div class="btnWrap">
+      <button class="startBtn">start</button>
+      <button class="stopBtn">stop</button>
+    </div>
+    <script src="jquery.min.js"></script>
+    <script>
+      const nStart = $(".car").position().left;
+      const nEnd = nStart + $(".bar").width() - $(".car").width(); // 50 + 500 - 120
+      let nStep = 2; // 자동차 움직임
+      let current = nStart; //자동차의 현재위치
+      let timeId;
+      let doubleClick = true;
+
+      //   $(".startBtn").click(function(){})
+      //   $(".stopBtn").click(function(){})
+
+      $(".startBtn").click(function () {
+        if (doubleClick == true) {
+          tiemId = setInterval(movie, 30);
+          doubleClick = false;
+        }
+      });
+      $(".stopBtn").click(function () {
+        clearInterval(tiemId);
+        doubleClick = true;
+      });
+
+      function movie() {
+        current += nStep; // current = current + nStep  // current = 52
+        console.log(current);
+        $(".car").css("left", current);
+        if (current > nEnd) {
+          //   clearInterval(tiemId);
+          nStep = -nStep;
+          $(".car").addClass("rotate");
+        }
+        if (current < nStart) {
+          nStep = -nStep;
+          $(".car").removeClass("rotate");
+        }
+      }
+    </script>
+  </body>
+</html>
