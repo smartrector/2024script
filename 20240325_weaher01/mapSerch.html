@@ -73,13 +73,13 @@
         });
         infowindows.push(infowindow); // 인포윈도우를 배열에 추가
 
-        // 마커에 mouseout 이벤트 추가
-        kakao.maps.event.addListener(marker, "mouseout", function () {
-          infowindow.close();
-        });
+        // // 마커에 mouseout 이벤트 추가
+        // kakao.maps.event.addListener(marker, "mouseout", function () {
+        //   infowindow.close();
+        // });
 
         // 마커 클릭 시 인포윈도우 열기
-        kakao.maps.event.addListener(marker, "mouseover", function () {
+        kakao.maps.event.addListener(marker, "click", function () {
           infowindow.open(map, marker);
         });
       }
@@ -134,8 +134,8 @@
       // 지도에 표시된 마커와 인포윈도우 제거하는 함수
       function removeMarkers() {
         markers.forEach(function (marker) {
-          kakao.maps.event.removeListener(marker, "mouseover");
-          kakao.maps.event.removeListener(marker, "mouseout");
+          // kakao.maps.event.removeListener(marker, "mouseover");
+          kakao.maps.event.removeListener(marker, "click");
           marker.setMap(null);
         });
         markers = []; // 배열 비우기

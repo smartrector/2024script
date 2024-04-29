@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>마커 검색 예제</title>
+    <!-- 카카오맵 API 로드 -->
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c80b374533248ba26472c6e5c877ac0b"
+    ></script>
+    <style>
+      #map {
+        width: 500px;
+        height: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <input type="text" id="searchInput" placeholder="검색어를 입력하세요" />
+    <ul id="searchResult"></ul>
+
+    <script>
+      var map = null; // 전역 변수로 맵 객체를 저장할 변수 선언
+      var markers = []; // 검색 결과 마커를 담을 배열
+      var infowindows = []; // 마커에 연결된 인포윈도우를 담을 배열
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var mapContainer = document.getElementById("map"); // 지도를 표시할 div
+        var mapOption = {
+          center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+          level: 5, // 지도의 확대 레벨
+        };
+        map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+        // 데이터로부터 마커 정보를 가져올 예제 배열
+        var positions = [
+          {
+            title: "카카오",
+            content: "<div>카카오</div>",
+            info: "카카오정보1",
+            latlng: new kakao.maps.LatLng(33.450705, 126.570677),
+          },
+          {
+            title: "생태연못",
+            content: "<div>생태연못</div>",
+            info: "카카오정보1",
+            latlng: new kakao.maps.LatLng(33.450936, 126.569477),
+          },
+          {
+            title: "텃밭",
+            content: "<div>텃밭</div>",
+            info: "카카오정보1",
+            latlng: new kakao.maps.LatLng(33.450879, 126.56994),
+          },
+          {
+            title: "근린공원",
+            content: "<div>근린공원</div>",
+            info: "카카오정보1",
+            latlng: new kakao.maps.LatLng(33.451393, 126.570738),
+          },
+        ];
+
+        // 검색 이벤트 처리
+        var searchInput = document.getElementById("searchInput");
+        searchInput.addEventListener("input", function () {
+          var keyword = this.value;
+          searchPlaces(keyword);
+        });
+
+        // 장소 검색 함수
+        function searchPlaces(keyword) {
+          // 검색 결과를 지도에 표시하기 전에 기존 마커와 인포윈도우 제거
+          removeMarkers();
+
+          // 입력된 키워드가 포함된 위치 찾기
+          var filteredPositions = positions.filter(function (position) {
+            return position.title.includes(keyword);
+          });
+
+          // 검색 결과를 지도에 표시
+          displayMarkers(filteredPositions);
+        }
+
+        // 마커를 생성하고 지도에 표시하는 함수
+        function createMarker(position) {
+          var marker = new kakao.maps.Marker({
+            map: map,
+            position: position.latlng,
+          });
+          markers.push(marker); // 마커를 배열에 추가
+
+          // 커스텀 인포윈도우 HTML 구성
+          var content = `<div style="padding:10px">
+              <div>${position.content}</div>
+              <button onclick='closeInfoWindow(${
+                markers.length - 1
+              })'>닫기</button>
+            </div>`;
+
+          // 마커 클릭 시 인포윈도우 열기
+          var infowindow = new kakao.maps.InfoWindow({
+            content: content,
+          });
+          infowindows.push(infowindow); // 인포윈도우를 배열에 추가
+
+          // 마커 클릭 시 인포윈도우 열기
+          kakao.maps.event.addListener(marker, "click", function () {
+            closeAllInfoWindows(); // 다른 인포윈도우 닫기
+            infowindow.open(map, marker);
+          });
+        }
+
+        // 검색 결과를 지도에 표시하는 함수
+        function displayMarkers(positions) {
+          // 검색 결과에 따라 새로운 마커 생성
+          positions.forEach(function (position) {
+            createMarker(position);
+          });
+        }
+
+        // 지도에 표시된 마커와 인포윈도우 제거하는 함수
+        function removeMarkers() {
+          markers.forEach(function (marker) {
+            marker.setMap(null);
+          });
+          markers = []; // 배열 비우기
+
+          infowindows.forEach(function (infowindow) {
+            infowindow.close();
+          });
+          infowindows = []; // 배열 비우기
+        }
+
+        // 다른 지도의 정보를 클릭시 자동으로 content 닫히게
+        function closeAllInfoWindows() {
+          infowindows.forEach(function (infowindow) {
+            infowindow.close();
+          });
+        }
+
+        // 인포윈도우 닫기 버튼 클릭 이벤트 핸들러
+        window.closeInfoWindow = function (index) {
+          if (infowindows[index]) {
+            infowindows[index].close();
+          }
+        };
+
+        // 페이지 로드 시 모든 위치 표시
+        displayMarkers(positions);
+      });
+    </script>
+  </body>
+</html>
